@@ -39,19 +39,37 @@ class Pet {
         this.species = _species
         this.breed = _breed
     }
-    sameOwnerName(owner1,owner2) {
 
+    checkOwner(pet2) {
+        if (this.ownerName === pet2.ownerName) {
+            console.log(`${this.petName} e ${pet2.petName} hanno lo stesso padrone!`)
+        }
+        else {
+            console.log(`${this.petName} e ${pet2.petName} non hanno lo stesso padrone!`)
+        }
     }
 }
 
-const form = document.querySelector('form')
-
 let schedePets = []
 
-form.addEventListener('submit', (event) => {
+document.querySelector('form').addEventListener('submit', (event) => {
     event.preventDefault()
+
     let namePet = document.querySelector('.namePet').value
     let nameOwner = document.querySelector('.nameOwner').value
     let speciesPet = document.querySelector('.speciesPet').value
     let breedPet = document.querySelector('.breedPet').value
+
+    const newPet = new Pet(namePet,nameOwner,speciesPet,breedPet)
+
+    schedePets.push(newPet)
+
+    displayPet(newPet)
 })
+
+function displayPet(pet) {
+    const petUl = document.querySelector('.schedeContainer')
+    const petLi = document.createElement('li')
+    petLi.textContent = `Pet name: ${pet.petName}, Owner name: ${pet.ownerName}, Species: ${pet.species}, Breed: ${pet.breed}`
+    petUl.appendChild(petLi)
+}
