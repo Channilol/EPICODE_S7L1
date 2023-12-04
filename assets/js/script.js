@@ -7,13 +7,19 @@ class User {
         this.age = _age
         this.location = _location
     }
-    AgeDifference(utente1, utente2) {
-        let resultAgeDifference = utente1.age - utente2.age
-        if (resultAgeDifference >= 0) {
-            console.log(`${utente1.firstName} è più vecchio di ${utente2.firstName}`)
+    AgeDifference(utente) {
+        let name1 = this.firstName
+        let name2 = utente.firstName
+        let age1 = this.age
+        let age2 = utente.age
+        if (age1 > age2) {
+            console.log(`${name1} è più vecchio/a di ${name2}`)
+        }
+        else if (age1 === age2) {
+            console.log(`${name1} ha la stessa età di ${name2}`)
         }
         else {
-            console.log(`${utente2.firstName} è più vecchio di ${utente1.firstName}`)
+            console.log(`${name1} è più piccolo/a di ${name2}`)
         }
     }
 }
@@ -38,13 +44,14 @@ class Pet {
     }
 }
 
-const buttonSubmit = document.querySelector('button')
+const form = document.querySelector('form')
 
-buttonSubmit.addEventListener('click', () => {
-    const namePet = document.querySelector('.namePet').value
-    const nameOwner = document.querySelector('.nameOwner').value
-    const speciesPet = document.querySelector('.speciesPet').value
-    const breedPet = document.querySelector('.breedPet').value
-    const animale1 = new Pet(namePet, nameOwner, speciesPet, breedPet)
-    return animale1
+let schedePets = []
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault()
+    let namePet = document.querySelector('.namePet').value
+    let nameOwner = document.querySelector('.nameOwner').value
+    let speciesPet = document.querySelector('.speciesPet').value
+    let breedPet = document.querySelector('.breedPet').value
 })

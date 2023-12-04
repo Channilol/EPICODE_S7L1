@@ -1,0 +1,19 @@
+form {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: bisque;
+    border: 1px solid gray;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgb(73, 73, 73);
+}
+
+form input {
+    margin: 2vh 0;
+}
+
+form button {
+    margin: 2vh 0;
+    width: 100px;
+}
